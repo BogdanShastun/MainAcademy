@@ -1,10 +1,6 @@
 package Module_2.Laba_2_7.Shapes;
-
 import java.util.Random;
 
-/**
- * Created by Serg_Smile on 29.04.2017.
- */
 /*Create class Main with method main().
 The program must demonstrate the creation of one Shape object and print it name and color to console.
 Then add code to invoke calcArea() method and print result to console.
@@ -31,29 +27,53 @@ total area for each of shape types (Rectangle, Circle, Triangle) and print it to
 Rectangles total area: 234.54
 Circle total area: 547.231
 Triangle total area: 356.56*/
+
 public class Main {
-     static double sumArea=0;
-     static double sumRectArea=0, sumTriangleArea=0, sumCircleArea=0;
+     static double sumArea=0, sumRectArea=0, sumTriangleArea=0, sumCircleArea=0;
+     static Random random = new Random();
+
     public static void main(String[] args) {
-        Random random = new Random();
-        Shape[] shapes = new Shape[10];
-        for (Shape shape : shapes) {
+        Shape[] shapes = new Shape[random.nextInt(10)+3];
+        setArrayRandomShapes(shapes);
+        printArrayShapes(shapes);
+        calcTotalArea(shapes);
+        printTotalArea();
+    }
 
-            System.out.println(shape);
-            shape.printArea();
-            double area = shape.calcArea();
-            sumArea+=area;
-            if (shape instanceof Rectangle) sumRectArea+=area;
-            if (shape instanceof Triangle) sumTriangleArea+=area;
-            if (shape instanceof Circle) sumCircleArea+=area;
+    public static void setArrayRandomShapes(Shape[] shapes){
+        for (int i=0; i<shapes.length; i++) {
+            int a;
+            a = random.nextInt(3);
+            switch (a){
+                case 0: shapes[i] = Triangle.getRandomTriangle(); break;
+                case 1: shapes[i] = Rectangle.getRandomRectangle(); break;
+                case 2: shapes[i] = Circle.getRandomCircle(); break;
+            }
         }
-        Shape fff = Triangle.getRandomTriangle();
-        System.out.println(fff);
-        System.out.println("Rectangles total area: "+(int)sumRectArea);
-        System.out.println("Circle total area: "+(int)sumCircleArea);
-        System.out.println("Triangle total area: "+(int)sumTriangleArea);
+    }
 
-        System.out.println("Total area of all shape types = "+(int)sumArea);
+    public static void printArrayShapes(Shape[] shapes){
+        for (Shape shape : shapes) {
+            System.out.print(shape);
+            System.out.printf(", area is: %.2f\n",shape.calcArea());
+        }
+    }
 
+    public static void calcTotalArea(Shape[] shapes){
+        double area;
+        for (int i = 0; i < shapes.length; i++){
+            area = shapes[i].calcArea();
+            sumArea+=area;
+            if (shapes[i] instanceof Rectangle) sumRectArea+=area;
+            if (shapes[i] instanceof Triangle) sumTriangleArea+=area;
+            if (shapes[i] instanceof Circle) sumCircleArea+=area;
+        }
+    }
+
+    public static void printTotalArea(){
+        System.out.printf("Rectangles total area: %.2f\n", sumRectArea);
+        System.out.printf("Circle total area: %.3f\n", sumCircleArea);
+        System.out.printf("Triangle total area: %.2f\n", sumTriangleArea);
+        System.out.printf("Total area of all shape types = %.2f\n", sumArea);
     }
 }
