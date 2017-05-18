@@ -15,7 +15,7 @@ public class Circle extends Shape{
     }
     public static Circle getRandomCircle(){
         Random random = new Random();
-        return new Circle(Shape.getRandomColor(), random.nextInt(7)+2);
+        return new Circle(getRandomColor(), random.nextInt(7)+2);
     }
 
     @Override

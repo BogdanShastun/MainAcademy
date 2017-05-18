@@ -19,7 +19,7 @@ public class Rectangle extends Shape{
 
     public static Rectangle getRandomRectangle(){
         Random random = new Random();
-        return new Rectangle(Shape.getRandomColor(), random.nextInt(9)+2, random.nextInt(9)+2);
+        return new Rectangle(getRandomColor(), random.nextInt(9)+2, random.nextInt(9)+2);
     }
 
     @Override

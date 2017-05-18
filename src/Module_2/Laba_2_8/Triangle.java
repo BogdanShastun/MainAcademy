@@ -1,13 +1,9 @@
-package Module_2.Laba_2_7.Shapes;
+package Module_2.Laba_2_8;
+
 import java.util.Random;
 
-/* Add to project MyShapes a new class Triangle which is a subclass of Shape.
-Add to class Triangle a private field’s a, b, c (of double type) which is sides of triangle.
-In class Triangle override calcArea() method which must return area of triangle.
-In class Triangle override the toString() method.
-It must return string which contain name of shape, color and a, b, c sides of triangle.
-Example: “This is Triangle, color: BLACK, a=5, b=5, c=5”
-Add to class Triangle constructor with color, a, b and c arguments.*/
+/* You must implement the Comparable interface to each of shape types (Rectangle, Circle, Triangle).
+Implement the compareTo() method for each of shape types class so that it compares the areas of the shapes.*/
 
 public class Triangle extends Shape {
     private double a,b,c;

@@ -41,8 +41,8 @@ public class Main {
     }
 
     public static void setArrayRandomShapes(Shape[] shapes){
+        int a;
         for (int i=0; i<shapes.length; i++) {
-            int a;
             a = random.nextInt(3);
             switch (a){
                 case 0: shapes[i] = Triangle.getRandomTriangle(); break;
