@@ -9,7 +9,7 @@ package Module_2.Laba_2_13_ENUMS;
   For example: MyDayOfWeek.FRIDAY.nextDay() must return MyDayOfWeek.SATURDAY.
   Add to method main() code that read string value from console (using System.in and Scanner),
   then you must parse string value to particular enum value (using valueOf() method)
-  and then print the name of next day of week to console.*/
+  and then print the name of next day of week to console.sbvnb*/
 
 import java.util.Scanner;
 
